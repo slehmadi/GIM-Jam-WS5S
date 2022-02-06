@@ -10,3 +10,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_Area2D_mouse_entered():
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_Area2D_mouse_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
