@@ -8,4 +8,4 @@ func _ready():
 
 func _on_Button_pressed():
 	$"/root/Global".hide()
-	get_tree().change_scene("res://src/Clock.tscn")
+	get_tree().change_scene("res://src/Living Room/Clock.tscn")
