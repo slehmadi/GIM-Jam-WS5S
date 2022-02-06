@@ -27,3 +27,9 @@ func _on_Timer_timeout():
 	var jumpscare_sound = $NoniDeadEnd/AudioStreamPlayer
 	jumpscare_sound.play()
 	$NoniDeadEnd/NoniThird.show()
+	$NoniDeadEnd/BackButton.show()
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://src/main.tscn")
+	pass # Replace with function body.
