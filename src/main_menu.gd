@@ -1,15 +1,22 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var backstory = $Backstory
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Global.target_location = "res://src/Living Room/LivingRoom.tscn"
+	backstory.hide()
+	$"transition/ColorRect".hide()
+	pass
 
-func _on_Button_pressed():
-	self.hide()
-	get_tree().change_scene("res://src/Living Room/Clock.tscn")
+func _on_PlayButton_pressed():
+	var anim = $"transition/AnimationPlayer"	
+	$"transition/ColorRect".show()
+	anim.play("fade_in")
+
+func _on_BackstoryButton_pressed():
+	backstory.show()
+
+func _on_BackButton_pressed():
+	backstory.hide()

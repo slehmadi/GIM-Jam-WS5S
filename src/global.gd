@@ -1,7 +1,5 @@
 extends Node2D
 
 var inventory = []
-
-func _ready():
-	pass
-
+var from_location = ""
+var target_location = ""
