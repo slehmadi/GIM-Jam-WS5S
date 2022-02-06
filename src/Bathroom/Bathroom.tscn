@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/images/backgrounds/bathroom.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/items/Noni2.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://assets/Audio/Sounds/jumpscare1.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/Audio/Sounds/door_slam.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/Audio/BGM/Chilly_wind.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/fonts/architect-s-daughter/ArchitectsDaughter.tres" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -36,6 +40,24 @@ texture = ExtResource( 4 )
 stream = ExtResource( 5 )
 volume_db = -20.102
 
+[node name="BackButton" type="Button" parent="NoniDeadEnd"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 801.0
+margin_top = 342.0
+margin_right = 980.0
+margin_bottom = 392.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -15.731
@@ -46,3 +68,4 @@ volume_db = -10.487
 autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="NoniDeadEnd/BackButton" to="." method="_on_BackButton_pressed"]
