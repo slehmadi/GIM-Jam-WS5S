@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/architect-s-daughter/ArchitectsDaughter32.tres" type="DynamicFontData" id=1]
+[ext_resource path="res://src/global.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = ExtResource( 1 )
+fallback/0 = SubResource( 1 )
+
+[node name="Main Menu" type="Node2D"]
+position = Vector2( 1, 3 )
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+margin_left = -7.0
+margin_top = -9.0
+margin_right = 1033.0
+margin_bottom = 598.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 231.0
+margin_top = 24.0
+margin_right = 815.0
+margin_bottom = 198.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "This is Main Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 454.0
+margin_top = 264.0
+margin_right = 633.0
+margin_bottom = 314.0
+size_flags_horizontal = 4
+text = "Click Me"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
