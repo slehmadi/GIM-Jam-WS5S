@@ -17,3 +17,7 @@ func _on_Area2D_mouse_entered():
 
 func _on_Area2D_mouse_exited():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func _on_Book_input_event(viewport, event, shape_idx):
+	pass # Replace with function body.
