@@ -91,7 +91,6 @@ position = Vector2( 563, 370 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Book"]
 position = Vector2( -0.294189, 4.41302 )
 rotation = -1.44946
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Door" type="Area2D" parent="."]

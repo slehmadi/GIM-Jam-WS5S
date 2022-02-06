@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/images/backgrounds/basement.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/items/Level 5-lemari/kunci.png" type="Texture" id=2]
 [ext_resource path="res://src/Basement/Basement.gd" type="Script" id=3]
+[ext_resource path="res://assets/Audio/Sounds/ambiance_loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Audio/Sounds/footsteps2.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/images/items/Noni_third.png" type="Texture" id=6]
+[ext_resource path="res://assets/Audio/Sounds/jumpscare1.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Audio/Sounds/extreme_jumpscare.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.5, 20.5 )
@@ -39,5 +44,37 @@ position = Vector2( 406, 518 )
 position = Vector2( 0, -0.169 )
 polygon = PoolVector2Array( 5, -22.831, 2, -239.831, 157, -242.831, 157, 1.16901, 5, 2.16901 )
 
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="NoniDeadEnd" type="Node2D" parent="."]
+
+[node name="NoniThird" type="Sprite" parent="NoniDeadEnd"]
+visible = false
+position = Vector2( 513.937, 299.938 )
+scale = Vector2( 7.98535, 7.64263 )
+texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NoniDeadEnd"]
+stream = ExtResource( 7 )
+volume_db = -20.102
+
+[node name="Jumpscare" type="AudioStreamPlayer2D" parent="NoniDeadEnd"]
+stream = ExtResource( 8 )
+volume_db = -7.428
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="input_event" from="Kunci" to="." method="_on_Kunci_input_event"]
+[connection signal="mouse_entered" from="Kunci" to="." method="_on_Kunci_mouse_entered"]
+[connection signal="mouse_exited" from="Kunci" to="." method="_on_Kunci_mouse_exited"]
+[connection signal="input_event" from="Pintu" to="." method="_on_Pintu_input_event"]
 [connection signal="mouse_entered" from="Pintu" to="." method="_on_Pintu_mouse_entered"]
 [connection signal="mouse_exited" from="Pintu" to="." method="_on_Pintu_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
