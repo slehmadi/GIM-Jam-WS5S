@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/images/backgrounds/living room.png" type="Texture" id=1]
 [ext_resource path="res://src/transition.tscn" type="PackedScene" id=2]
@@ -8,12 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.163, 40.069 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 105.5, 43.5 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24, 28.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 42, 22.5 )
@@ -30,10 +24,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 656, 377 ) ]
+"values": [ Vector2( 512, 130 ), Vector2( 512, -300 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Note_move_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Note:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, -300 ), Vector2( 512, 130 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -66,6 +75,13 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 550 ) ]
 }
 
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://assets/fonts/architect-s-daughter/ArchitectsDaughter.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 30
+font_data = SubResource( 11 )
+
 [node name="Living Room" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -77,20 +93,6 @@ position = Vector2( -0.294189, 4.41302 )
 rotation = -1.44946
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="Piano" type="Area2D" parent="."]
-position = Vector2( 298, 308 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Piano"]
-position = Vector2( 9.5, -8.5 )
-shape = SubResource( 2 )
-
-[node name="Clock" type="Area2D" parent="."]
-position = Vector2( 703, 268 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clock"]
-position = Vector2( 0, 3.5 )
-shape = SubResource( 3 )
 
 [node name="Door" type="Area2D" parent="."]
 position = Vector2( 907, 230 )
@@ -106,7 +108,17 @@ position = Vector2( 791, 348 )
 position = Vector2( -1, -3.5 )
 shape = SubResource( 4 )
 
+[node name="Bedroom" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Bedroom"]
+position = Vector2( 153, 271 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Area2D"]
+position = Vector2( -7, -129 )
+polygon = PoolVector2Array( 1, 0, 35, 13, 42, 224, -10, 236, -16, -6 )
+
 [node name="The Book" type="Node2D" parent="."]
+position = Vector2( 0, 550 )
 
 [node name="The Book" type="Sprite" parent="The Book"]
 position = Vector2( 512, 250 )
@@ -123,18 +135,13 @@ z_index = 1
 shape = SubResource( 5 )
 
 [node name="Note" type="Sprite" parent="The Book"]
-position = Vector2( 656, 377 )
+position = Vector2( 660, 374 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 5 )
 
-[node name="Note" type="Area2D" parent="The Book/Note"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="The Book/Note/Note"]
-position = Vector2( -355, 215 )
-polygon = PoolVector2Array( -5, -5, 675, -5, 670, 125, -5, 70 )
-
 [node name="TheBookAnimation" type="AnimationPlayer" parent="The Book"]
 anims/Note_move_in = SubResource( 8 )
+anims/Note_move_out = SubResource( 10 )
 anims/TheBook_move_in = SubResource( 6 )
 anims/TheBook_move_out = SubResource( 7 )
 
@@ -150,21 +157,31 @@ __meta__ = {
 
 [node name="transition" parent="." instance=ExtResource( 2 )]
 
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 321.0
+margin_top = 63.0
+margin_right = 840.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 12 )
+text = "Its Locked, need key!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="input_event" from="Book" to="." method="_on_Book_input_event"]
 [connection signal="mouse_entered" from="Book" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Book" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="mouse_entered" from="Piano" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Piano" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="mouse_entered" from="Clock" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Clock" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="Door" to="." method="_on_Door_input_event"]
 [connection signal="mouse_entered" from="Door" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Door" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="input_event" from="Drawer" to="." method="_on_Drawer_input_event"]
 [connection signal="mouse_entered" from="Drawer" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Drawer" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="Bedroom/Area2D" to="." method="_on_Bedroom_input_event"]
+[connection signal="mouse_entered" from="Bedroom/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Bedroom/Area2D" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="input_event" from="The Book/The Book/The Book" to="." method="_on_The_Book_input_event"]
 [connection signal="mouse_entered" from="The Book/The Book/The Book" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="The Book/The Book/The Book" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="mouse_entered" from="The Book/Note/Note" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="The Book/Note/Note" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="animation_finished" from="The Book/TheBookAnimation" to="." method="_on_TheBookAnimation_animation_finished"]

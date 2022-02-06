@@ -3,6 +3,7 @@ extends Node2D
 var inventory = []
 var from_location = ""
 var target_location = ""
+var bedroomKey = false
 
 var drawerCond = "res://assets/images/items/Level 5-lemari/lemari1 (ada kunci).png"
 

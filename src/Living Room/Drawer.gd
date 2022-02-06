@@ -34,6 +34,7 @@ func _on_key_input_event(viewport, event, shape_idx):
 func _on_The_Key_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
+			Global.bedroomKey = true
 			$AnimationPlayer.play("move_out")
 
 func _on_Exit_input_event(viewport, event, shape_idx):

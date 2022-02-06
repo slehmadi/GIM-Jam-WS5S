@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/architect-s-daughter/ArchitectsDaughter.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://src/main_menu.gd" type="Script" id=2]
 [ext_resource path="res://src/transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Audio/BGM/main menu theme.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/fonts/architect-s-daughter/ArchitectsDaughter.ttf"
@@ -87,25 +88,34 @@ margin_left = 56.0
 margin_top = 39.0
 margin_right = 963.0
 margin_bottom = 503.0
-color = Color( 0.2, 0.2, 0.2, 0.670588 )
+color = Color( 0.2, 0.2, 0.2, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Backstory/ColorRect"]
+[node name="Label" type="RichTextLabel" parent="Backstory/ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 8.0
+margin_right = -1.0
 margin_bottom = -58.0
-custom_fonts/font = SubResource( 2 )
-text = "This Story is about a boy who wondering about an old building
-this is what dwa daw da daw daw da daw
-awdawdawdawdawdwadadawda
-dawdawdawdawdawdawdaw
-adawdawdawdawdawdawdawd
-awdawdddddddddddddddddddddddddddddddddddddddddddddddaddad
-asddddddddddddddddddddddddddddddddddddddddddddddddddds
-saddddddddddddddddddddddddddddddddddddddddd
-"
+tab_size = 6
+text = "Di tahun 1946, hidup seorang noni cantik dari Belanda. Ia adalah seorang ahli strategis perang yang terkenal hebat sejak dahulu ketika masa akhir penjajahan, dan setelah 3 tahun kembali untuk menyerang dan mengambil kembali Indonesia pada Agresi Militer I dan II. Di tengah pertempurannya ia bertemu dan jatuh cinta dengan prajurit pribumi yang menyelamatkannya dari medan perang walaupun sang prajurit tahu bahwa orang Belanda adalah musuhnya.
+
+Setelah surut pertikaian karena telah adanya banyak kesepakatan dan perundingan antara Indonesia - Belanda, pada 1949 noni memutuskan untuk meninggalkan kehidupan militer secara diam-diam dari Belanda, serta hidup bersama sang prajurit penyelamatnya di Indonesia. Mereka tinggal di sebuah rumah yang cukup besar dan nyaman di Bandung serta hidup bahagia dikaruniai 2 anak, seorang berumur 4 tahun lelaki dan satunya masih dalam 8 bulan kandungan. Sayangnya di sisi lain, beberapa tokoh mantan pejuang mengenali wajah sang ahli strategis sejak awal kepindahannya ke rumah itu. Melalui tokoh-tokoh tersebut, bertahun-tahun pemerintah menyelidiki kehidupan noni Belanda yang bahagia dan dianggap tidak adil mengetahui betapa banyaknya tanggung jawab nyawa yang mati karenanya. Atas dendam kesumat yang warga Indonesia miliki, mereka merencanakan rencana mematikan.
+
+Di suatu malam yang sepi pada tahun 1953, hanya jangkrik terdengar di bawah bulan sabit, di hari itu sang suami pergi meninggalkan rumahnya untuk sebuah tugas militer ke luar pulau. Terdengar ketukan pintu depan sebanyak 4 kali dan suara seorang pria, \"noni, ada surat dari prajurit.\" Noni heran sebab tidak pernah ada surat datang di jam malam. Ia jalan perlahan karena bayi dalam kandungannya sudah besar. Putranya yang berusia 4 tahun berlari duluan ke pintu untuk membantu ibunya membukakan dan menerima surat.
+
+\"Yaa, halo, terimakasih untuk suratnya pak-!\" Ujar sang bocah sambil memegang surat yang diterimanya. DOR! Belum sempat ia menutup pintu, kepalanya tertembus peluru. Tubuhnya terjatuh ke belakang dan darah mengalir keluar dengan cepat membasahi lantai. Noni berteriak kencang dan panik karena tubuh putranya tidak bergerak di ruang tamu. Pintu terbuka semakin lebar dan ia melihat ada tujuh pemuda membawa berbagai senjata, yang paling depan membawa senapan.
+
+Noni segera berlari ke kamar mandi dan mengunci pintu. Pemuda-pemuda yang ada diluar mulai masuk ke dalam dan mengejar noni, menggedor-gedor pintu dan berusaha mendobrak. Ditengah kepanikan noni yang tidak tahu bisa berbuat apa, air ketubannya pecah. Ia mencari kotak p3k yang bisa membantu apapun itu, tetapi pintu terlanjur terdobrak dan seorang pria yang membawa clurit masuk seraya berkata pada rekan-rekannya, \"Jalang itu ada disini!\" Noni berusaha lari keluar untuk kabur, namun ketika ia keluar kamar mandi, perutnya terbacok oleh clurit. Darah mengalir dari perut maupun dari dalam rahim noni. Ia berteriak kesakitan, namun juga marah, sedih, dan panik karena bayinya yang kemungkinan besar sudah terluka. Hanya satu tempat yang memungkinkan yang terpikir bagi noni untuk sembunyi: ruang bawah tanah.
+
+Noni berlari melewati kejaran dan usaha pembunuhan banyak pemuda itu menuju ruang bawah tanah. Sebelum pemuda lain bisa masuk mengejar, ia sempat menutup dan mengunci pintu menuju tangga ke bawah. Disana ia berusaha memastikan bayinya masih aman. Namun dengan perut yang sudah terbuka lebar hasil sabetan clurit dan kewarasannya yang sudah tiada, ia mengambil bayinya yang sudah mati dari perutnya sendiri dan menggendongnya, menyanyikan lullaby Belanda. Sampai akhir ketika para pemuda berhasil masuk ke dalam ruang bawah tanah setelah berusaha selama 2 jam, ia ditemukan sudah gantung diri sambil memegang mayat bayinya serta secarik foto keluarga.
+
+Ketika para pemuda itu melihat lebih dekat dan hendak mengambil foto tersebut, lampu ruang bawah tanah itu mati tiba-tiba. Terasa bulu kuduk pemuda itu bangkit dan mereka merasa bahwa mereka harus segera kembali. Namun ternyata pintu ruang bawah tanah sudah terkunci dari dalam. Konon pada tanggal itu, terdengar suara jeritan pemuda-pemuda. Banyak yang bilang bahwa itu adalah hantu sang noni yang menyiksa mereka di bawah tanah. Banyak yang memeriksa atau menyelidiki rumah itu setelahnya, namun mereka tidak pernah kembali. Sejauh ini juga tidak pernah ada yang berhasil membuka pintu bawah tanah itu lagi. Dan apabila mulai masuk ke dalam dengan mengetuk pintu rumah itu 4 kali dan berkata \"noni, ada surat dari prajurit\" ketika bulan sabit, maka hantu sang noni akan mendatangimu duluan lebih cepat dan menyiksamu lebih parah.
+
+Bagaimana nasib prajurit suami noni? Setelah pergi dari tugas militer ia tak pernah kembali. Banyak yang bilang bahwa tugas militer itu adalah tugas palsu yang didatangkan dari pemerintah hanya agar noni dan anak-anaknya lebih mudah dibunuh ketika di rumah sendirian. Apalagi sang suami adalah prajurit berjasa sehingga mereka tidak membunuhnya, melainkan mengasingkannya ke suatu pulau terpencil selamanya akibat dari menikahi sosok musuh. Oleh karenanya jangan pernah mendatangi atau menyelidiki rumah tersebut."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,6 +137,10 @@ __meta__ = {
 }
 
 [node name="transition" parent="." instance=ExtResource( 3 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="BackstoryButton" to="." method="_on_BackstoryButton_pressed"]
