@@ -27,4 +27,3 @@ func _on_Timer_timeout():
 	var jumpscare_sound = $NoniDeadEnd/AudioStreamPlayer2D
 	jumpscare_sound.play()
 	$NoniDeadEnd/NoniThird.show()
-	pass # Replace with function body.
