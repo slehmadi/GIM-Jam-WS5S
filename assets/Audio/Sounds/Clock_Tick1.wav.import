@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Clock_Tick1.wav-3ac9e44ae7a83c120f592880ce7abbfd.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Sounds/Clock_Tick1.wav"
+dest_files=[ "res://.import/Clock_Tick1.wav-3ac9e44ae7a83c120f592880ce7abbfd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

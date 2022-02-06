@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/menu exit sound.wav-95796dab3e7fd209d325880577c32670.sample"
+
+[deps]
+
+source_file="res://assets/Audio/Sounds/menu exit sound.wav"
+dest_files=[ "res://.import/menu exit sound.wav-95796dab3e7fd209d325880577c32670.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
