@@ -1,47 +1,98 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/items/Level 3-jam/jarumjam.png" type="Texture" id=1]
 [ext_resource path="res://src/Living Room/clock.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/items/Level 3-jam/jam.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/items/Level 3-jam/jarumdetik.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/items/Level 3-jam/jarummenit.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.25, 28.25 )
+extents = Vector2( 19.9868, 166.022 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.9998, 265.969 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7.94894, 365.98 )
 
 [node name="Clock" type="Node2D"]
 
+[node name="The Clock" type="Node2D" parent="."]
+position = Vector2( 280, 247 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="The Clock"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
 [node name="HOURS" type="Node2D" parent="." groups=["HOURS"]]
-position = Vector2( 538, 295 )
+position = Vector2( 281, 231 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="HOURS"]
-position = Vector2( 78, -1 )
-rotation = 1.5634
-scale = Vector2( 0.375, 3.01563 )
+position = Vector2( 92, 0 )
+rotation = 1.56443
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Area2D" type="Area2D" parent="HOURS/Sprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HOURS/Sprite/Area2D"]
+position = Vector2( -1.03137, 214.021 )
 shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HOURS/Sprite/Area2D"]
+position = Vector2( -0.305664, 47.999 )
+polygon = PoolVector2Array( 0, 0, -64.024, 3.59253, 0.687744, -107.998, 63.9987, 0.407471 )
 
 [node name="MINUTES" type="Node2D" parent="." groups=["MINUTES"]]
-position = Vector2( 539, 295 )
-z_index = 1
+position = Vector2( 278, 231 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="MINUTES"]
-position = Vector2( 50.4292, -0.796074 )
-rotation = 1.5634
-scale = Vector2( 0.375, 2.15402 )
-texture = ExtResource( 1 )
+position = Vector2( 86, 0 )
+rotation = 1.56443
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="MINUTES/Sprite"]
-position = Vector2( -0.552246, 0.198547 )
-z_index = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MINUTES/Sprite/Area2D"]
-shape = SubResource( 1 )
+position = Vector2( 0.432983, 113.998 )
+shape = SubResource( 2 )
 
-[connection signal="input_event" from="HOURS/Sprite/Area2D" to="HOURS" method="_on_Area2D_input_event"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MINUTES/Sprite/Area2D"]
+position = Vector2( -3.0321, -152.022 )
+polygon = PoolVector2Array( 0, 0, -64.024, 3.59253, 0.687744, -107.998, 63.9987, 0.407471 )
+
+[node name="SECONDS" type="Node2D" parent="." groups=["SECONDS"]]
+position = Vector2( 278, 231 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="SECONDS"]
+position = Vector2( 86, 0 )
+rotation = 1.56443
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="SECONDS/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SECONDS/Sprite/Area2D"]
+position = Vector2( -0.0510254, 14.0129 )
+shape = SubResource( 3 )
+
 [connection signal="mouse_entered" from="HOURS/Sprite/Area2D" to="HOURS" method="_on_Area2D_mouse_entered"]
-[connection signal="input_event" from="MINUTES/Sprite/Area2D" to="MINUTES" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="MINUTES/Sprite/Area2D" to="MINUTES" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_entered" from="SECONDS/Sprite/Area2D" to="SECONDS" method="_on_Area2D_mouse_entered"]
