@@ -22,8 +22,8 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	var Door_sound = $AudioStreamPlayer2D
+	var Door_sound = $AudioStreamPlayer
 	Door_sound.play()
-	var jumpscare_sound = $NoniDeadEnd/AudioStreamPlayer2D
+	var jumpscare_sound = $NoniDeadEnd/AudioStreamPlayer
 	jumpscare_sound.play()
 	$NoniDeadEnd/NoniThird.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Living Room/Drawer.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/items/Level 5-lemari/lemari1 (ada kunci).png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.24301, 21.9597 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 515, 54 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "move_in"
@@ -61,6 +64,13 @@ rotation = -0.143723
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2( 512, 98 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2( -1, -44 )
+shape = SubResource( 4 )
+
 [node name="The Key" type="Sprite" parent="."]
 position = Vector2( 500, 690 )
 scale = Vector2( 0.2, 0.2 )
@@ -81,6 +91,9 @@ anims/move_out = SubResource( 3 )
 [connection signal="input_event" from="key" to="." method="_on_key_input_event"]
 [connection signal="mouse_entered" from="key" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="key" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="input_event" from="Exit" to="." method="_on_Exit_input_event"]
+[connection signal="mouse_entered" from="Exit" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Exit" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="input_event" from="The Key/The Key" to="." method="_on_The_Key_input_event"]
 [connection signal="mouse_entered" from="The Key/The Key" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="The Key/The Key" to="." method="_on_Area2D_mouse_exited"]

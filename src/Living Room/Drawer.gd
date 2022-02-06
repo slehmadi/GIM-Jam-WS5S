@@ -36,9 +36,15 @@ func _on_The_Key_input_event(viewport, event, shape_idx):
 		if event.is_pressed():
 			$AnimationPlayer.play("move_out")
 
+func _on_Exit_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			Global.target_location = "res://src/Living Room/LivingRoom.tscn"
+			$transition/ColorRect.show()
+			$transition/AnimationPlayer.play("fade_in")
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "move_in":
 		$key.queue_free()
 	elif anim_name == "move_out":
 		$"The Key".hide()
-
