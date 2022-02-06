@@ -3,7 +3,7 @@ extends Node2D
 var inventory = []
 var from_location = ""
 var target_location = ""
-
+var flag = false
 var drawerCond = "res://assets/images/items/Level 5-lemari/lemari1 (ada kunci).png"
 
 onready var select_sound = $select
