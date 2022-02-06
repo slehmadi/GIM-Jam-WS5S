@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/clock.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.25, 28.25 )
+
+[node name="Clock" type="Node2D"]
+
+[node name="HOURS" type="Node2D" parent="." groups=["HOURS"]]
+position = Vector2( 538, 295 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="HOURS"]
+position = Vector2( 78, -1 )
+rotation = 1.5634
+scale = Vector2( 0.375, 3.01563 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="HOURS/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HOURS/Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="MINUTES" type="Node2D" parent="." groups=["MINUTES"]]
+position = Vector2( 539, 295 )
+z_index = 1
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="MINUTES"]
+position = Vector2( 50.4292, -0.796074 )
+rotation = 1.5634
+scale = Vector2( 0.375, 2.15402 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="MINUTES/Sprite"]
+position = Vector2( -0.552246, 0.198547 )
+z_index = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MINUTES/Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="HOURS/Sprite/Area2D" to="HOURS" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="HOURS/Sprite/Area2D" to="HOURS" method="_on_Area2D_mouse_entered"]
+[connection signal="input_event" from="MINUTES/Sprite/Area2D" to="MINUTES" method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="MINUTES/Sprite/Area2D" to="MINUTES" method="_on_Area2D_mouse_entered"]
